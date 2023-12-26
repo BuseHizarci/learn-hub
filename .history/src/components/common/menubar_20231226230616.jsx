@@ -10,12 +10,14 @@ const Menubar = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="mainMenu" />
         <Navbar.Offcanvas
-          id="mainMenu"
-          aria-labelledby="offcanvas"
+          id 
+          aria-labelledby={`offcanvasNavbarLabel-expand-lg`}
           placement="end"
         >
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title id="Offcanvas">Offcanvas</Offcanvas.Title>
+            <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`}>
+              Offcanvas
+            </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">

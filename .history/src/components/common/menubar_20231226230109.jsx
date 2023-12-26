@@ -1,21 +1,29 @@
 import React from "react";
-import { Container, Navbar, Offcanvas, Nav, Image } from "react-bootstrap";
-import { config } from "../../helpers/config";
+import {
+  Button,
+  Container,
+  NavDropdown,
+  Navbar,
+  Offcanvas,
+  Form,
+  Nav,
+} from "react-bootstrap";
+
 const Menubar = () => {
   return (
     <Navbar expand="lg">
       <Container>
-        <Navbar.Brand href="#">
-          <Image src="/images/logo/logo.png" alt={config.project.name} />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="mainMenu" />
+        <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+        <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} />
         <Navbar.Offcanvas
-          id="mainMenu"
-          aria-labelledby="offcanvas"
+          id={`offcanvasNavbar-expand-lg`}
+          aria-labelledby={`offcanvasNavbarLabel-expand-lg`}
           placement="end"
         >
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title id="Offcanvas">Offcanvas</Offcanvas.Title>
+            <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`}>
+              Offcanvas
+            </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">

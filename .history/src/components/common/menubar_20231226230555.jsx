@@ -8,14 +8,16 @@ const Menubar = () => {
         <Navbar.Brand href="#">
           <Image src="/images/logo/logo.png" alt={config.project.name} />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="mainMenu" />
+        <Navbar.Toggle aria-controls="ma" />
         <Navbar.Offcanvas
-          id="mainMenu"
-          aria-labelledby="offcanvas"
+          id={`offcanvasNavbar-expand-lg`}
+          aria-labelledby={`offcanvasNavbarLabel-expand-lg`}
           placement="end"
         >
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title id="Offcanvas">Offcanvas</Offcanvas.Title>
+            <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`}>
+              Offcanvas
+            </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">

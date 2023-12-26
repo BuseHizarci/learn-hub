@@ -15,7 +15,9 @@ const Menubar = () => {
           placement="end"
         >
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title id="Offcanvas">Offcanvas</Offcanvas.Title>
+            <Offcanvas.Title id="offcanvas">
+              Offcanvas
+            </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">

@@ -9,7 +9,7 @@ const Topbar = () => {
       <Container>
         <Row>
           <Col md={10} className="d-none d-md-block">
-            {config.project.slogan}
+            config.project.slogan
           </Col>
           <Col md={2} className="text-center text-md-end">
             Login
