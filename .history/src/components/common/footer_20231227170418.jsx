@@ -19,7 +19,9 @@ const Footer = () => {
           </Col>
           <Col>
             <h3>Quick Links</h3>
-            <Menu className="flex-column" />
+            <Nav >
+              <Menu />
+            </Nav>
           </Col>
           <Col></Col>
           <Col></Col>

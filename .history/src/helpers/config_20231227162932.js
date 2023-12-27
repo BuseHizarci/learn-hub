@@ -7,6 +7,6 @@ export const config = {
   },
   contact: {
     email: "pM5yT@example.com",
-    phone: "+1 (555) 555-5555",
-  },
+    
+  }
 };

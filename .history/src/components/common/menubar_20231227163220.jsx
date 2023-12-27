@@ -21,7 +21,7 @@ const Menubar = () => {
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <Nav className="justify-content-center flex-grow-1 pe-3">
+            <Nav className="justify-content-end flex-grow-1 pe-3">
               <Nav.Link as={Link} to="/homepage">
                 Home
               </Nav.Link>
@@ -38,7 +38,7 @@ const Menubar = () => {
                 Contact
               </Nav.Link>
             </Nav>
-            <a href={`tel ${config.phone}`} className="btn btn-primary">
+            <a href={}`tel ${config.phone}`` target="_blank">
               Call now !{" "}
             </a>
           </Offcanvas.Body>

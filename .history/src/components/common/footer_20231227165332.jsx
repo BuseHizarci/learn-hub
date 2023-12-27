@@ -1,8 +1,8 @@
 import React from "react";
-import { Container, Row, Col, Image, Nav } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { config } from "../../helpers/config";
-import Menu from "./menu";
+
 const Footer = () => {
   return (
     <footer>
@@ -18,8 +18,6 @@ const Footer = () => {
             <p>{config.project.description}</p>
           </Col>
           <Col>
-            <h3>Quick Links</h3>
-            <Menu className="flex-column" />
           </Col>
           <Col></Col>
           <Col></Col>
