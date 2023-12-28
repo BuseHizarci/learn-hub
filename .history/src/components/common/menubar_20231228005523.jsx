@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Navbar, Offcanvas, Nav, Image } from "react-bootstrap";
 import { config } from "../../helpers/config";
 import { Link } from "react-router-dom";
-import Menu from "./menu";
+import Men
 const Menubar = () => {
   return (
     <Navbar expand="lg">
@@ -22,7 +22,7 @@ const Menubar = () => {
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <Menu />
+         <Menu />
             <a href={`tel ${config.phone}`} className="btn btn-primary">
               Call now !{" "}
             </a>

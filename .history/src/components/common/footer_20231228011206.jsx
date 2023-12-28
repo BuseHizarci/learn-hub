@@ -5,7 +5,7 @@ import { config } from "../../helpers/config";
 import Menu from "./menu";
 import "./footer.scss";
 import SocialMenu from "./social-menu";
-import ContactMenu from "./contact-menu";
+
 const Footer = () => {
   return (
     <footer>
@@ -29,9 +29,7 @@ const Footer = () => {
             <h3>Social Links</h3>
             <SocialMenu className="flex-column" />
           </Col>
-          <Col>
-            <h3>Contact us!</h3>
-            <ContactMenu />
+          <Col><h3>Contact us!</h3>
           </Col>
         </Row>
       </Container>

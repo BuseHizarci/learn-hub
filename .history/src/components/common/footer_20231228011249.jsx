@@ -5,7 +5,7 @@ import { config } from "../../helpers/config";
 import Menu from "./menu";
 import "./footer.scss";
 import SocialMenu from "./social-menu";
-import ContactMenu from "./contact-menu";
+impor
 const Footer = () => {
   return (
     <footer>

@@ -2,7 +2,6 @@ import React from "react";
 import { Container, Navbar, Offcanvas, Nav, Image } from "react-bootstrap";
 import { config } from "../../helpers/config";
 import { Link } from "react-router-dom";
-import Menu from "./menu";
 const Menubar = () => {
   return (
     <Navbar expand="lg">
@@ -22,7 +21,23 @@ const Menubar = () => {
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <Menu />
+            <Nav className="justify-content-center flex-grow-1 pe-3">
+              <Nav.Link as={Link} to="/homepage">
+                Home
+              </Nav.Link>
+              <Nav.Link as={Link} to="/courses">
+                Courses{" "}
+              </Nav.Link>
+              <Nav.Link as={Link} to="/events">
+                Event
+              </Nav.Link>
+              <Nav.Link as={Link} to="/about">
+                About
+              </Nav.Link>
+              <Nav.Link as={Link} to="/contact">
+                Contact
+              </Nav.Link>
+            </Nav>
             <a href={`tel ${config.phone}`} className="btn btn-primary">
               Call now !{" "}
             </a>

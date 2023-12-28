@@ -1,0 +1,6 @@
+@use "../../styles/variables.scss" as v;
+
+footer {
+  background-color: v.$color4;
+  color: v.$color4;
+}

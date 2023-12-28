@@ -8,7 +8,7 @@ export const config = {
   contact: {
     email: "pM5yT@example.com",
     phone: "+1 (555) 555-5555",
-    mapUrl: "https://www.google.com/maps/place/123+Main+St,+Anytown,+USA",
+    mapUrl:
     address: "123 Main St, Anytown USA",
     hours: "Mon - Fri: 9am - 5pm",
     socialmedia: {
