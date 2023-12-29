@@ -11,7 +11,7 @@ const Footer = () => {
     <footer>
       <Container>
         <Row className="g-5">
-          <Col lg={3} md={4}>
+          <Col className="md-4 sm-">
             <Link to="/">
               <Image
                 src="/images/logo/logo-white.png"

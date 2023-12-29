@@ -5,7 +5,7 @@ import Image from "react-bootstrap/Image";
 
 const Slider = () => {
   return (
-    <Carousel fade>
+    <Carousel fade >
       {slides.map((slide) => (
         <Carousel.Item key={slide.id}>
           <Image

@@ -10,8 +10,8 @@ const Footer = () => {
   return (
     <footer>
       <Container>
-        <Row className="g-5">
-          <Col lg={3} md={4}>
+        <Row >
+          <Col>
             <Link to="/">
               <Image
                 src="/images/logo/logo-white.png"

@@ -20,7 +20,7 @@ const Footer = () => {
             </Link>
             <p>{config.project.description}</p>
           </Col>
-          <Col>
+          <Col >
             <h3>Quick Links</h3>
             <Menu className="flex-column" />
           </Col>
