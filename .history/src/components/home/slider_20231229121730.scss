@@ -1,0 +1,15 @@
+@use "../../styles/mixins" as m;
+.slider {
+  img {
+    height: 100vh;
+    object-fit: cover;
+    object-position: 75% center;
+    
+  }
+  .carousel-caption {
+    text-align: left;
+    bottom: auto;
+    top: 50%;
+    @include m.transform(translateY(-50%));
+  }
+}

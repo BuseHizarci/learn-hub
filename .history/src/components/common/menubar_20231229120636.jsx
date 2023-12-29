@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Menu from "./menu";
 const Menubar = () => {
   return (
-    <Navbar expand="lg" sticky="top" className="bg-white">
+    <Navbar expand="lg" >
       <Container>
         <Navbar.Brand as={Link} to="/">
           <Image src="/images/logo/logo.png" alt={config.project.name} />

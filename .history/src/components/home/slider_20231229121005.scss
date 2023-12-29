@@ -1,0 +1,14 @@
+.slider {
+  img {
+    height: 100vh;
+    object-fit: cover;
+    object-position: 75% center;
+  }
+  .carousel-caption {
+    text-align: left;
+    left: 10%;
+    right: 10%;
+    top: 40%;
+    
+  }
+}
