@@ -9,7 +9,6 @@ const HomePage = () => {
       <Slider />
       <Welcome />
       <FeaturedCourses />
-      
     </div>
   );
 };
