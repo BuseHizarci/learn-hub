@@ -1,0 +1,10 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.upcoming-events {
+  background-color: v.$color4;
+  padding-top: 50px;
+  h2 {
+    display: block;
+  }
+}

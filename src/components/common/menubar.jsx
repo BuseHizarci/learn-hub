@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Navbar, Offcanvas, Nav, Image } from "react-bootstrap";
+import { Container, Navbar, Offcanvas, Image } from "react-bootstrap";
 import { config } from "../../helpers/config";
 import { Link } from "react-router-dom";
 import Menu from "./menu";

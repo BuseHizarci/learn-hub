@@ -1,15 +1,6 @@
 import React from "react";
 import { NavLink } from "react-bootstrap";
-import {
-  FaFacebook,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedin,
-  FaPhone,
-  FaEnvelope,
-  FaAddressBook,
-  FaMap,
-} from "react-icons/fa"; // import FaFacebook } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaAddressBook, FaMap } from "react-icons/fa"; // import FaFacebook } from "react-icons/fa";
 import { Nav } from "react-bootstrap";
 import { config } from "../../helpers/config";
 const ContactMenu = (props) => {

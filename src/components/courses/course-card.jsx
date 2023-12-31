@@ -1,6 +1,5 @@
 import React from "react";
-import { Card, Container, Row, Col } from "react-bootstrap";
-import courses from "../../helpers/data/courses.json";
+import { Card } from "react-bootstrap";
 import "./course-card.scss";
 import { FiUser, FiTrendingUp, FiMessageCircle } from "react-icons/fi";
 const CourseCard = ({ image, title, user, date, comment }) => {
@@ -8,7 +7,9 @@ const CourseCard = ({ image, title, user, date, comment }) => {
     <div>
       <Card className="course-card">
         <Card.Body>
-          <Card.Img src={`/images/${image}`} alt={title} />
+          <div className="image">
+            <Card.Img src={`/images/${image}`} alt={title} />
+          </div>
           <Card.Title>{title}</Card.Title>
           <Card.Subtitle>
             <div>
