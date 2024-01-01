@@ -8,7 +8,7 @@ const CourseCard = ({ image, title, user, date, comment }) => {
       <Card className="course-card">
         <Card.Body>
           <div className="image">
-            <Card.Img src={`/images/${image}`} alt={title} />
+            <Card.Img src={`/images/courses/${image}`} />
           </div>
           <Card.Title>{title}</Card.Title>
           <Card.Subtitle>
