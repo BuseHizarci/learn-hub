@@ -8,7 +8,7 @@ const Welcome = () => {
       <Container>
         <Row className="align-items-center g-5">
           <Col md={6}>
-            <Image className="img-fluid" src="/images/about/welcome.png" />
+            <Image className="img-fluid" src="/images/about/welcome.jpg" />
           </Col>
           <Col md={6}>
             <h3>Welcome</h3>
