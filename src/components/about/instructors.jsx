@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import PageHeader from "../common/page-header";
 import instructors from "../../helpers/data/instructors.json";
 import InstructorCard from "./instructor-card";
 

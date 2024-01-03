@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-google-maps/api": "^2.19.2",
     "@reduxjs/toolkit": "^2.0.1",
     "@sweetalert2/themes": "^5.0.15",
     "@testing-library/jest-dom": "^5.17.0",
