@@ -5,6 +5,7 @@ import CoursesPage from "../pages/courses-page";
 import EventsPage from "../pages/events-page";
 import UserLayout from "../layouts/user-layout";
 import HomePage from "../pages/home-pages";
+import LoginPage from "../pages/login-page";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <ContactPage />,
+      },
+      {
+        path: "login",
+        element: <LoginPage />,
       },
     ],
   },
