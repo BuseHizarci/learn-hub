@@ -4,20 +4,32 @@ import { Card, Container, Form, Row, Col, Button } from "react-bootstrap";
 import { useFormik } from "formik";
 import { useState } from "react";
 import ButtonSpinner from "../common/button-spinner";
+import PasswordInput from "../common/password-input";
 //Formik formu handle eden kisim , bosu bosuna backendi mesgul etmeyelim , backend bunu kontrol edecek
 //Baslangic degerleri form elemanlariyla iliskili olmak zorunda
 const LoginForm = () => {
   const [loading, setLoading] = useState(false);
 
   const initalValues = {
-    username: "",
-    password: "",
+    username: "roo",
+    password: "123456Aa",
   };
   const validationSchema = Yup.object({
     username: Yup.string().required("Please enter your username"),
     password: Yup.string().required("Please enter your password"),
   });
-  const onSubmit = async (values) => {};
+  const onSubmit = async (values) => {
+    setLoading(true);
+    try {
+      const user = await login(values);
+      const { token } = user;
+      localStorage.setItem("token", token);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
   const formik = useFormik({
     initialValues: initalValues,
     validationSchema: validationSchema,
@@ -50,14 +62,13 @@ const LoginForm = () => {
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control
-                      type="password"
-                      placeholder="Password"
+                    <PasswordInput
                       {...formik.getFieldProps("password")}
+                      isInvalid={
+                        formik.touched.password && formik.errors.password
+                      }
+                      error={formik.errors.password}
                     />
-                    <Form.Control.Feedback type="invalid" className="d-block">
-                      {formik.errors.password}
-                    </Form.Control.Feedback>
                   </Form.Group>
                   <Button
                     className="w-100"
