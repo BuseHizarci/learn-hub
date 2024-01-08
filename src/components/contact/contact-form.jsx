@@ -7,7 +7,6 @@ import * as Yup from "yup";
 import { createMessage } from "../../api/contact-service";
 import { swalAlert } from "../../helpers/swal";
 import "./contact-form.scss";
-import GetInTouch from "./get-in-touch";
 
 const ContactForm = () => {
   const [loading, setLoading] = useState(false);
