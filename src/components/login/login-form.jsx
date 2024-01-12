@@ -28,7 +28,7 @@ const LoginForm = () => {
 
   const onSubmit = async (values) => {
     setLoading(true);
-
+    
     try {
       const user = await login(values);
       const { token } = user;
@@ -37,7 +37,7 @@ const LoginForm = () => {
       dispatch(loginSuccess(user));
       navigate("/dashboard");
     } catch (err) {
-      const errMsg = err.response.data.message;
+      console.log(err);
       swalAlert(errMsg, "error");
     } finally {
       setLoading(false);

@@ -7,3 +7,13 @@ export const login = async (payload) => {
   const data = resp.data;
   return data;
 };
+
+export const register = async (payload) => {
+  const resp = await axios.post(`${API_URL}/auth/register`, payload);
+  const data = resp.data;
+  return data;
+};
+
+
+// Fonksiyonlar ve paramereler denemesi yap
+// Axios ile post ve get seklinde istekler atilacak.

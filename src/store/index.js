@@ -6,3 +6,8 @@ export default configureStore({
     auth: authSlice,
   },
 });
+
+// Redux ile ilgil bir kac kavram.
+// - State
+// - Action - Stateyi guncellemek icin action kullanirsin.
+// - Reducer

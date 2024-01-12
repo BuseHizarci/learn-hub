@@ -35,7 +35,7 @@ const ContactForm = () => {
     setLoading(true);
 
     try {
-      await createMessage(values);
+      const response = await createMessage(values);
       formik.resetForm();
       swalAlert("Your message has been sent", "success");
     } catch (err) {

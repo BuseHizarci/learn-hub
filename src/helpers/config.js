@@ -3,7 +3,7 @@ export const config = {
     name: "LearnHub",
     slogan: "📢 LearnHub: Navigating Education, Empowering Futures!",
     description:
-      "Welcome to LearnHub, where innovation meets education! Our cutting-edge school management app is designed to seamlessly connect students, teachers, and parents in a collaborative learning ecosystem. With LearnHub, stay effortlessly organized with intuitive features for attendance tracking, grade management, and communication tools. Empower your educational journey with real-time insights, interactive learning resources, and streamlined administration. Experience the future of education management – LearnHub, transforming the way we learn, teach, and succeed together.",
+      "Welcome to LearnHub, where innovation meets education! Our cutting-edge school management app is designed to seamlessly connect students, teachers, and parents in a collaborative learning ecosystem. With LearnHub, stay effortlessly organized with intuitive features for attendance tracking, grade management, and communication tools. ",
   },
   api: {
     baseUrl: "https://mycampusmates.com/app",
@@ -22,5 +22,32 @@ export const config = {
       instagram: "https://www.instagram.com/",
       linkedin: "https://www.linkedin.com/",
     },
+    pageRoles: {
+      dashboard: ["ADMIN", "MANAGER", "ASSISTANTMANAGER", "TEACHER", "STUDENT"],
+      adminManagement: ["ADMIN"],
+      managerManagement: ["ADMIN"],
+      assistantManagerManagement: ["ADMIN", "MANAGER"],
+      teacherManagement: ["ADMIN", "ASSISTANTMANAGER"],
+      lessonManagement: ["ADMIN", "ASSISTANTMANAGER"],
+      studentManagement: ["ADMIN", "ASSISTANTMANAGER"],
+      studentInfoManagement: ["TEACHER"],
+      meetManagement: ["TEACHER"],
+      contactMessages: ["ADMIN", "MANAGER", "ASSISTANTMANAGER"],
+      chooseLesson: ["STUDENT"],
+      gradesAndMeets: ["STUDENT"],
+    },
+    educationTerms: [
+      { label: "Fall", key: "FALL_SEMESTER" },
+      { label: "Spring", key: "SPRING_SEMESTER" },
+    ],
+    days: [
+      "MONDAY",
+      "TUESDAY",
+      "WEDNESDAY",
+      "THURSDAY",
+      "FRIDAY",
+      "SATURDAY",
+      "SUNDAY",
+    ],
   },
 };

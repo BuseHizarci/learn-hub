@@ -7,6 +7,10 @@ import UserLayout from "../layouts/user-layout";
 import HomePage from "../pages/home-pages";
 import LoginPage from "../pages/login-page";
 
+import AdminPage from "../pages/dashboard/admin-page";
+import PrivateRoute from "./private-route";
+import Error404Page from "../pages/errors/error404-page";
+import DashboardPage from "../pages/dashboard/dashboard-page";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +39,23 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <LoginPage />,
+      },
+      {
+        path: "dashboard",
+        children: [
+          {
+            index: true,
+            element: <DashboardPage />,
+          },
+          {
+            path: "admin-management",
+            element: <AdminPage />,
+          },
+          {
+            path: "**",
+            element: <Error404Page />,
+          },
+        ],
       },
     ],
   },

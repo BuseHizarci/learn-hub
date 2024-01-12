@@ -6,12 +6,12 @@ import { Outlet } from "react-router-dom";
 
 const UserLayout = () => {
   return (
-    <div>
+    <>
       <Topbar />
       <Menubar />
       <Outlet />
       <Footer />
-    </div>
+    </>
   );
 };
 
