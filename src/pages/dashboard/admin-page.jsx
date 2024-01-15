@@ -1,7 +1,11 @@
 import React from "react";
+import PageHeader from "../../components/common/page-header";
 
 const AdminPage = () => {
-  return <div>AdminPage</div>;
+  return;
+  <>
+    <PageHeader title="Admin Page" />
+  </>;
 };
 
 export default AdminPage;

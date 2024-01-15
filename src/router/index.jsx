@@ -8,7 +8,6 @@ import HomePage from "../pages/home-pages";
 import LoginPage from "../pages/login-page";
 
 import AdminPage from "../pages/dashboard/admin-page";
-import PrivateRoute from "./private-route";
 import Error404Page from "../pages/errors/error404-page";
 import DashboardPage from "../pages/dashboard/dashboard-page";
 const router = createBrowserRouter([
@@ -41,6 +40,10 @@ const router = createBrowserRouter([
         element: <LoginPage />,
       },
       {
+        path: "unauthorized",
+        element: <Error404Page />,
+      },
+      {
         path: "dashboard",
         children: [
           {
@@ -50,10 +53,6 @@ const router = createBrowserRouter([
           {
             path: "admin-management",
             element: <AdminPage />,
-          },
-          {
-            path: "**",
-            element: <Error404Page />,
           },
         ],
       },

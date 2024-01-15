@@ -13,10 +13,7 @@ const Slider = () => {
             alt={slide.title}
             className="d-block w-100"
           />
-          <Carousel.Caption>
-            <h3>{slide.title}</h3>
-            <p>{slide.desc}</p>
-          </Carousel.Caption>
+          <Carousel.Caption></Carousel.Caption>
         </Carousel.Item>
       ))}
     </Carousel>

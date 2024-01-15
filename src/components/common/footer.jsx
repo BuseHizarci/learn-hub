@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Image} from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { config } from "../../helpers/config";
 import Menu from "./menu";
@@ -31,7 +31,7 @@ const Footer = () => {
           </Col>
           <Col>
             <h3>Contact us!</h3>
-            <ContactMenu />
+            <ContactMenu className="flex-column" />
           </Col>
         </Row>
       </Container>

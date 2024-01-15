@@ -10,11 +10,11 @@
     font-weight: 700;
 
     &::before {
-      content: "○ ";
+      content: "- ";
     }
 
     &::after {
-      content: " ○";
+      content: " -";
     }
   }
 }
