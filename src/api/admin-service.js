@@ -7,7 +7,7 @@ export const getAdminsByPage = async (
   page = 0,
   size = 20,
   sort = "name",
-  type="asc"
+  type = "asc"
 ) => {
   const resp = await axios.get(
     `${API_URL}/admin/getAll?page=${page}&size=${size}&sort=${sort}&type=${type}`,

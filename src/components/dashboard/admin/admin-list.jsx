@@ -5,11 +5,13 @@ import { Column } from "primereact/column";
 import { FaTrash } from "react-icons/fa";
 import { swalAlert, swalConfirm } from "../../../helpers/swal";
 import { useDispatch, useSelector } from "react-redux";
-import { getAdminsByPage, deleteAdmin } from "../../../api/admin-service";
+import { refreshToken, setOperation } from "../../../store/slices/misc-slice";
+import { getAdminsByPage } from "../../../api/admin-service";
 
 const AdminList = () => {
-  const { listRefreshToken } = useSelector((state) => state.misc);
   const [list, setList] = useState([]);
+  const dispatch = useDispatch();
+
   const [totalRecords, setTotalRecords] = useState(0);
   const [loading, setLoading] = useState(true);
   const [lazyState, setlazyState] = useState({
@@ -18,9 +20,7 @@ const AdminList = () => {
     page: 0,
   });
 
-  const dispatch = useDispatch();
-
-
+  const refreshToken = useSelector((state) => state.misc.refreshToken);
   const loadData = async () => {
     try {
       const resp = await getAdminsByPage(lazyState.page, lazyState.rows);
@@ -75,11 +75,12 @@ const AdminList = () => {
   const handleNew = () => {
     dispatch(setOperation("new"));
   };
+  //set operation cagir // bunun icin dispatch kullanmak lazim
 
   useEffect(() => {
     loadData();
     // eslint-disable-next-line
-  }, [lazyState, listRefreshToken]);
+  }, [lazyState]);
 
   return (
     <Container>
