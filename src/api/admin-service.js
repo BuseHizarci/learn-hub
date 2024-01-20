@@ -1,11 +1,12 @@
 import axios from "axios";
 import { config } from "../helpers/config";
 import { getAuthHeader } from "../helpers/auth-header";
-const API_URL = config.api.baseUrl;
+
+const API_URL = config.api.baseUrl; // https://mycampusmates.com/app
 
 export const getAdminsByPage = async (
   page = 0,
-  size = 20,
+  size = 2,
   sort = "name",
   type = "asc"
 ) => {
@@ -19,5 +20,18 @@ export const getAdminsByPage = async (
   return data;
 };
 
-// Fonksiyonlar ve paramereler denemesi yap
-// Axios ile post ve get seklinde istekler atilacak.
+export const createAdmin = async (payload) => {
+  const resp = await axios.post(`${API_URL}/admin/save`, payload, {
+    headers: getAuthHeader(),
+  });
+  const data = resp.data;
+  return data;
+};
+
+export const deleteAdmin = async (id) => {
+  const resp = await axios.delete(`${API_URL}/admin/delete/${id}`, {
+    headers: getAuthHeader(),
+  });
+  const data = resp.data;
+  return data;
+};

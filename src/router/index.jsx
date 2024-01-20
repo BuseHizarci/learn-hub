@@ -10,6 +10,7 @@ import LoginPage from "../pages/login-page";
 import AdminPage from "../pages/dashboard/admin-page";
 import Error404Page from "../pages/errors/error404-page";
 import DashboardPage from "../pages/dashboard/dashboard-page";
+import ManagerList from "../components/dashboard/manager/manager-list";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
           {
             path: "admin-management",
             element: <AdminPage />,
+          },
+          {
+            path: "manager-management",
+            element: <ManagerList />,
           },
         ],
       },

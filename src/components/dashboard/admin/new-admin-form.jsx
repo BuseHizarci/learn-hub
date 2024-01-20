@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap";
 import * as Yup from "yup";
 import ButtonSpinner from "../../common/button-spinner";
+import { createAdmin } from "../../../api/admin-service";
 import { swalAlert } from "../../../helpers/swal";
 import InputMask from "react-input-mask-next";
 import { useDispatch } from "react-redux";
@@ -59,9 +60,28 @@ const NewAdminForm = () => {
       .oneOf([Yup.ref("password")], "Passwords dosen't match"),
   });
 
+  const onSubmit = async (values) => {
+    setLoading(true);
+
+    try {
+      await createAdmin(values);
+      dispatch(refreshToken()); // Listeyi güncellemek için
+      dispatch(setOperation(null)); // New formunu kapatmak için
+      formik.resetForm();
+      swalAlert("Admin was created", "success");
+    } catch (err) {
+      console.log(err);
+      const msg = Object.values(err.response.data.validations)[0];
+      swalAlert(msg, "error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const formik = useFormik({
     initialValues,
     validationSchema,
+    onSubmit,
   });
 
   const handleCancel = () => {
@@ -73,7 +93,7 @@ const NewAdminForm = () => {
       <Card>
         <Card.Body>
           <Card.Title>New</Card.Title>
-          <Form noValidate>
+          <Form noValidate onSubmit={formik.handleSubmit}>
             <Row xs={1} sm={2} md={3} lg={4} className="g-3">
               <Col>
                 <FloatingLabel

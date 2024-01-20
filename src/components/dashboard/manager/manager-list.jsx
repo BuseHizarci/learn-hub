@@ -1,28 +1,37 @@
+import { Column } from "primereact/column";
+import { DataTable } from "primereact/datatable";
 import React, { useEffect, useState } from "react";
 import { Button, Card, Container } from "react-bootstrap";
-import { DataTable } from "primereact/datatable";
-import { Column } from "primereact/column";
-import { deleteAdmin, getAdminsByPage } from "../../../api/admin-service";
-import { FaTrash } from "react-icons/fa";
-import { swalAlert, swalConfirm } from "../../../helpers/swal";
 import { useDispatch, useSelector } from "react-redux";
 import { refreshToken, setOperation } from "../../../store/slices/misc-slice";
+import { swalAlert, swalConfirm } from "../../../helpers/swal";
+import { deleteManager, getManagersByPage } from "../../../api/manager-service";
+import { FaTrash } from "react-icons/fa";
 
-const AdminList = () => {
-  const { listRefreshToken } = useSelector((state) => state.misc);
+const ManagerList = () => {
   const [list, setList] = useState([]);
+  //Backend ten gelen verileri cekmek icin
+
+  const { listRefreshToken } = useSelector((state) => state.misc);
+  //listemizde herhangi bir kaydi sildigimizde listeyi guncellememiz gerekiyordu
+  //yeni bir kayit ekledik bunun alt tarafta gorunmesini istiyorduk
+  //listRefreshToken olusturdun bunu guncelliyoruz
+  //Eger degisiyor yeniden talep ediyor ve gidip aliyor
   const [totalRecords, setTotalRecords] = useState(0);
+  //Toplam kayit sayisini saklayacagiz
   const [loading, setLoading] = useState(true);
+  //Loading furumunu data.table da handle etmek icin kullanacagiz
   const [lazyState, setlazyState] = useState({
     first: 0,
     rows: 20,
     page: 0,
   });
   const dispatch = useDispatch();
+  //Merkezi state i degistimek icin useDispatch var
 
   const loadData = async () => {
     try {
-      const resp = await getAdminsByPage(lazyState.page, lazyState.rows);
+      const resp = await getManagersByPage(lazyState.page, lazyState.rows);
       setList(resp.content);
       setTotalRecords(resp.totalElements);
     } catch (err) {
@@ -31,15 +40,31 @@ const AdminList = () => {
       setLoading(false);
     }
   };
+  //Async yapiyoruz ger ManagerByPage ile bizden hangi sayfayi gostereceini kac satir gosreceini bekliyor
+  //biz bunu yukardan ayarliyoruz ve bizim listemizi set ediyoruz
+
+  useEffect(() => {
+    loadData();
+  }),
+    [lazyState, listRefreshToken];
+  //sayfa sayisini ve satir sayisini ayarlıyoruz
+  //lazystate ve listRefreshToken degistiginde calisir
+  const handleNew = () => {
+    dispatch(setOperation("new"));
+  };
+
+  const onPage = (event) => {
+    setlazyState(event);
+  };
 
   const handleDelete = async (id) => {
     const resp = await swalConfirm("Are you sure to delete?");
     if (!resp.isConfirmed) return;
     setLoading(true);
     try {
-      await deleteAdmin(id);
+      await deleteManager(id);
       dispatch(refreshToken());
-      swalAlert("Admin was deleted", "success");
+      swalAlert("Manager was deleted", "success");
     } catch (err) {
       const msg = err.response.data.message;
       console.log(err);
@@ -47,10 +72,6 @@ const AdminList = () => {
     } finally {
       setLoading(false);
     }
-  };
-
-  const onPage = (event) => {
-    setlazyState(event);
   };
 
   const getFullName = (row) => {
@@ -63,8 +84,7 @@ const AdminList = () => {
         <Button
           variant="danger"
           size="sm"
-          disabled={row.built_in}
-          onClick={() => handleDelete(row.id)}
+          onClick={() => handleDelete(row.userId)}
         >
           <FaTrash />
         </Button>
@@ -72,14 +92,7 @@ const AdminList = () => {
     );
   };
 
-  const handleNew = () => {
-    dispatch(setOperation("new"));
-  };
-
-  useEffect(() => {
-    loadData();
-    // eslint-disable-next-line
-  }, [lazyState, listRefreshToken]);
+  //sayfa degisikligi yaptigim zaman degisen sayfa ile alakali bir obje veriyor bana
 
   return (
     <Container>
@@ -92,8 +105,14 @@ const AdminList = () => {
 
           <DataTable
             value={list}
+            //value dogrudan listemiz bizim
+            //yerlesecek datayi tasiyan list
+
             lazy
-            dataKey="id"
+            //Butun datayi alip bize vermesin
+            //Tum data degil sayfa sayfa gelsin
+
+            dataKey="userId"
             paginator
             first={lazyState.first}
             rows={lazyState.rows}
@@ -115,4 +134,4 @@ const AdminList = () => {
   );
 };
 
-export default AdminList;
+export default ManagerList;

@@ -21,7 +21,10 @@ const UserMenuAuth = () => {
     removeLocalStorage("token");
     navigate("/");
   };
-
+  const handleNavigate = (link) => {
+    setShow(false);
+    navigate(link);
+  };
   return (
     <>
       <Button variant="secondary" onClick={() => setShow(true)}>
@@ -39,7 +42,7 @@ const UserMenuAuth = () => {
         </Offcanvas.Header>
         <Offcanvas.Body>
           <Nav className="flex-column">
-            <Nav.Link as={Link} to="/dashboard">
+            <Nav.Link onClick={() => handleNavigate("/dashboard")}>
               Dashboard
             </Nav.Link>
 
