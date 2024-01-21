@@ -1,9 +1,3 @@
-//neden bu dosyayi olusturuyoruz
-//Adminlistte bir butona basicam baska componentteki  etkileyecek degisecek
-//Merkezi state te bununla ilgili alan olustuyorum new butonuna bakinca guncellesin
-// Merkezi state :
-// Cesitli anlamina geliyor -> Kategorize etmediginiz seyleri toplamak
-
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {

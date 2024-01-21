@@ -11,6 +11,7 @@ import AdminPage from "../pages/dashboard/admin-page";
 import Error404Page from "../pages/errors/error404-page";
 import DashboardPage from "../pages/dashboard/dashboard-page";
 import ManagerList from "../components/dashboard/manager/manager-list";
+import AssistantManagerList from "../components/dashboard/assistant-manager/assistant-manager-list";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
           {
             path: "manager-management",
             element: <ManagerList />,
+          },
+          {
+            path: "assistant-manager-management",
+            element: <AssistantManagerList />,
           },
         ],
       },
