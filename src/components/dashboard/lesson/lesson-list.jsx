@@ -3,16 +3,13 @@ import { DataTable } from "primereact/datatable";
 import React, { useEffect, useState } from "react";
 import { Button, Card, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteManager, getManagersByPage } from "../../../api/manager-service";
-import {
-  refreshToken,
-  setOperation,
-  setRecord,
-} from "../../../store/slices/misc-slice";
+import { refreshToken, setOperation, setRecord } from "../../../store/slices/misc-slice";
 import { swalAlert, swalConfirm } from "../../../helpers/swal";
-import { FaTrash, FaEdit } from "react-icons/fa";
+import { FaCheck, FaTimes, FaTrash } from "react-icons/fa";
+import { config } from "../../../helpers/config";
+import { deleteLesson, getLessonsByPage } from "../../../api/lesson-service";
 
-const ManagerList = () => {
+const LessonList = () => {
   const { listRefreshToken } = useSelector((state) => state.misc);
   const [list, setList] = useState([]);
   const [totalRecords, setTotalRecords] = useState(0);
@@ -26,7 +23,7 @@ const ManagerList = () => {
 
   const loadData = async () => {
     try {
-      const resp = await getManagersByPage(lazyState.page, lazyState.rows);
+      const resp = await getLessonsByPage(lazyState.page, lazyState.rows);
       setList(resp.content);
       setTotalRecords(resp.totalElements);
     } catch (err) {
@@ -41,9 +38,9 @@ const ManagerList = () => {
     if (!resp.isConfirmed) return;
     setLoading(true);
     try {
-      await deleteManager(id);
+      await deleteLesson(id);
       dispatch(refreshToken());
-      swalAlert("Manager was deleted", "success");
+      swalAlert("Lesson was deleted", "success");
     } catch (err) {
       const msg = err.response.data.message;
       console.log(err);
@@ -53,43 +50,33 @@ const ManagerList = () => {
     }
   };
 
-  const handleEdit = (row) => {
-    dispatch(setRecord(row));
-    dispatch(setOperation("edit"));
-  };
-
+  
   const onPage = (event) => {
     setlazyState(event);
   };
 
-  const getFullName = (row) => {
-    return `${row.name} ${row.surname}`;
-  };
+
 
   const getOperations = (row) => {
     return (
       <div>
-        <Button
-          variant="warning"
-          size="sm"
-          disabled={row.built_in}
-          className="me-2"
-          onClick={() => handleEdit(row)}
-        >
-          <FaEdit />
-        </Button>
-
+        
         <Button
           variant="danger"
           size="sm"
           disabled={row.built_in}
-          onClick={() => handleDelete(row.userId)}
+          onClick={() => handleDelete(row.lessonId)}
         >
           <FaTrash />
         </Button>
       </div>
     );
   };
+
+  const getCompulsory = (row) => { 
+    return row.compulsory ? <FaCheck/> : <FaTimes/>
+   }
+
 
   const handleNew = () => {
     dispatch(setOperation("new"));
@@ -112,7 +99,7 @@ const ManagerList = () => {
           <DataTable
             value={list}
             lazy
-            dataKey="userId"
+            dataKey="lessonId"
             paginator
             first={lazyState.first}
             rows={lazyState.rows}
@@ -121,11 +108,9 @@ const ManagerList = () => {
             loading={loading}
             tableStyle={{ minWidth: "50rem" }}
           >
-            <Column body={getFullName} header="Name" />
-            <Column field="gender" header="Gender" />
-            <Column field="phoneNumber" header="Phone Number" />
-            <Column field="ssn" header="SSN" />
-            <Column field="username" header="Username" />
+            <Column field="lessonName" header="Name" />
+            <Column field="creditScore" header="Credit" />
+            <Column body={getCompulsory} header="Compulsory" />
             <Column body={getOperations} header="" />
           </DataTable>
         </Card.Body>
@@ -134,4 +119,4 @@ const ManagerList = () => {
   );
 };
 
-export default ManagerList;
+export default LessonList;

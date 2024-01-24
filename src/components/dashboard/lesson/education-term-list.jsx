@@ -3,10 +3,17 @@ import { DataTable } from "primereact/datatable";
 import React, { useEffect, useState } from "react";
 import { Button, Card, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { refreshToken, setOperation, setRecord } from "../../../store/slices/misc-slice";
+import {
+  refreshToken,
+  setOperation,
+  setRecord,
+} from "../../../store/slices/misc-slice";
 import { swalAlert, swalConfirm } from "../../../helpers/swal";
 import { FaTrash, FaEdit } from "react-icons/fa";
-import { deleteEducationTerm, getEducationTermsByPage } from "../../../api/education-term-service";
+import {
+  deleteEducationTerm,
+  getEducationTermsByPage,
+} from "../../../api/education-term-service";
 import { config } from "../../../helpers/config";
 
 const EducationTermList = () => {
@@ -23,7 +30,10 @@ const EducationTermList = () => {
 
   const loadData = async () => {
     try {
-      const resp = await getEducationTermsByPage(lazyState.page, lazyState.rows);
+      const resp = await getEducationTermsByPage(
+        lazyState.page,
+        lazyState.rows
+      );
       setList(resp.content);
       setTotalRecords(resp.totalElements);
     } catch (err) {
@@ -50,17 +60,13 @@ const EducationTermList = () => {
     }
   };
 
-  
   const onPage = (event) => {
     setlazyState(event);
   };
 
-
-
   const getOperations = (row) => {
     return (
       <div>
-        
         <Button
           variant="danger"
           size="sm"
@@ -73,10 +79,10 @@ const EducationTermList = () => {
     );
   };
 
-  const getTerm = (row) => { 
-    const term = config.educationTerms.find(item=> item.key === row.term)
+  const getTerm = (row) => {
+    const term = config.educationTerms.find((item) => item.key === row.term);
     return term.label;
-  }
+  };
 
   const handleNew = () => {
     dispatch(setOperation("new"));

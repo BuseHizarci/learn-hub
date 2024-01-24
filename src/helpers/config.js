@@ -8,6 +8,10 @@ export const config = {
   api: {
     baseUrl: "https://mycampusmates.com/app",
   },
+  educationTerms: [
+    { label: "Fall", key: "FALL_SEMESTER" },
+    { label: "Spring", key: "SPRING_SEMESTER" },
+  ],
   contact: {
     email: "pM5yT@example.com",
     phone: "+1 (555) 555-5555",
@@ -36,10 +40,7 @@ export const config = {
       chooseLesson: ["STUDENT"],
       gradesAndMeets: ["STUDENT"],
     },
-    educationTerms: [
-      { label: "Fall", key: "FALL_SEMESTER" },
-      { label: "Spring", key: "SPRING_SEMESTER" },
-    ],
+    
     days: [
       "MONDAY",
       "TUESDAY",
@@ -49,5 +50,6 @@ export const config = {
       "SATURDAY",
       "SUNDAY",
     ],
+
   },
 };

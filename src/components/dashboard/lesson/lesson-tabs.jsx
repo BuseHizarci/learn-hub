@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Tab, Tabs } from "react-bootstrap";
-import EducationTermList from "./education-term-list";
-import Spacer from "../../common/spacer";
+import EducationTermList from "./lesson-list";
+import Spacer from "../../../common/spacer";
 import NewEducationTermForm from "./new-education-term-form";
 import { useSelector } from "react-redux";
 import LessonList from "./lesson-list";
@@ -47,7 +47,7 @@ const LessonTabs = () => {
         <Spacer height={30} />
         {currentOperation === "new" && (
           <>
-            <NewLessonProgramForm />
+            <NewLessonProgramForm /> §
             <Spacer height={30} />
           </>
         )}

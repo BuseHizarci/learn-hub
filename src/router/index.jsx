@@ -6,10 +6,11 @@ import EventsPage from "../pages/events-page";
 import UserLayout from "../layouts/user-layout";
 import HomePage from "../pages/home-pages";
 import LoginPage from "../pages/login-page";
-
 import AdminPage from "../pages/dashboard/admin-page";
 import Error404Page from "../pages/errors/error404-page";
 import DashboardPage from "../pages/dashboard/dashboard-page";
+import LessonPage from "../pages/dashboard/lesson-page";
+
 import ManagerList from "../components/dashboard/manager/manager-list";
 import AssistantManagerList from "../components/dashboard/assistant-manager/assistant-manager-list";
 const router = createBrowserRouter([
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
           {
             path: "assistant-manager-management",
             element: <AssistantManagerList />,
+          },
+          {
+            path: "lesson-management",
+            element: <LessonPage />,
           },
         ],
       },
